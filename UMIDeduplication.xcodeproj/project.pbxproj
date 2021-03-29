@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11B4D49926121C1A00EDBC0D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11B4D49826121C1A00EDBC0D /* main.cpp */; };
+		11B4D49926121C1A00EDBC0D /* UMIDeduplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11B4D49826121C1A00EDBC0D /* UMIDeduplication.cpp */; };
+		11B4D4A126121CC900EDBC0D /* UMI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11B4D49F26121CC900EDBC0D /* UMI.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		11B4D49526121C1A00EDBC0D /* UMIDeduplication */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UMIDeduplication; sourceTree = BUILT_PRODUCTS_DIR; };
-		11B4D49826121C1A00EDBC0D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		11B4D49826121C1A00EDBC0D /* UMIDeduplication.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UMIDeduplication.cpp; sourceTree = "<group>"; };
+		11B4D49F26121CC900EDBC0D /* UMI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UMI.cpp; sourceTree = "<group>"; };
+		11B4D4A026121CC900EDBC0D /* UMI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UMI.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,9 @@
 		11B4D49726121C1A00EDBC0D /* UMIDeduplication */ = {
 			isa = PBXGroup;
 			children = (
-				11B4D49826121C1A00EDBC0D /* main.cpp */,
+				11B4D49826121C1A00EDBC0D /* UMIDeduplication.cpp */,
+				11B4D49F26121CC900EDBC0D /* UMI.cpp */,
+				11B4D4A026121CC900EDBC0D /* UMI.hpp */,
 			);
 			path = UMIDeduplication;
 			sourceTree = "<group>";
@@ -119,7 +124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11B4D49926121C1A00EDBC0D /* main.cpp in Sources */,
+				11B4D49926121C1A00EDBC0D /* UMIDeduplication.cpp in Sources */,
+				11B4D4A126121CC900EDBC0D /* UMI.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
