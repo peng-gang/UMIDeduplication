@@ -28,7 +28,7 @@ public:
     std::size_t getNumReads() {return numReads;}
     std::size_t getNumUMI() {return umis.size();}
     
-    std::vector<std::size_t> getNumUMIReads();
+    std::map<std::string, std::size_t> getNumUMIReads();
 };
 
 #endif /* UMIGroup_hpp */

@@ -71,6 +71,17 @@ bool UMISingle::insert(std::string read, std::string qs, std::string primer){
     return true;
 }
 
+bool UMISingle::insert(const UMISingle & other){
+    if(umi != other.umi){
+        return false;
+    }
+    
+    reads.insert(reads.end(), other.reads.begin(), other.reads.end());
+    qss.insert(qss.end(), other.qss.begin(), other.qss.end());
+    primers.insert(primers.end(), other.primers.begin(), other.primers.end());
+    return true;
+}
+
 
 bool UMISingle::deduplication(){
     return true;

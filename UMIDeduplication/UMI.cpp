@@ -101,6 +101,23 @@ bool UMI::insert(std::string read1, std::string read2, std::string qs1, std::str
     return true;
 }
 
+bool UMI::insear(const UMI & other){
+    if(umi!=other.umi){
+        return false;
+    }
+    
+    reads1.insert(reads1.end(), other.reads1.begin(), other.reads1.end());
+    reads2.insert(reads2.end(), other.reads2.begin(), other.reads2.end());
+    
+    qss1.insert(qss1.end(), other.qss1.begin(), other.qss1.end());
+    qss2.insert(qss2.end(), other.qss2.begin(), other.qss2.end());
+    
+    primers1.insert(primers1.end(), other.primers1.begin(), other.primers1.end());
+    primers2.insert(primers2.end(), other.primers2.begin(), other.primers2.end());
+    
+    return true;
+}
+
 
 bool UMI::deduplication(){
     return true;

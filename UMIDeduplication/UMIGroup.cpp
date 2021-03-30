@@ -93,14 +93,7 @@ UMIGroup::UMIGroup(std::string f1, std::string f2, bool gzFile){
 bool UMIGroup::insert(UMI umi){
     map<string, UMI>::iterator it = umis.find(umi.getUMI());
     if(it != umis.end()){
-        it->second.getReads1().insert(it->second.getReads1().end(), umi.getReads1().begin(), umi.getReads1().end());
-        it->second.getReads2().insert(it->second.getReads2().end(), umi.getReads2().begin(), umi.getReads2().end());
-        
-        it->second.getQss1().insert(it->second.getQss1().end(), umi.getQss1().begin(), umi.getQss1().end());
-        it->second.getQss2().insert(it->second.getQss2().end(), umi.getQss2().begin(), umi.getQss2().end());
-        
-        it->second.getPrimers1().insert(it->second.getPrimers1().end(), umi.getPrimers1().begin(), umi.getPrimers1().end());
-        it->second.getPrimers2().insert(it->second.getPrimers2().end(), umi.getPrimers2().begin(), umi.getPrimers2().end());
+        it->second.insear(umi);
         
     } else {
         umis.insert(pair<string, UMI> (umi.getUMI(), umi));
@@ -108,11 +101,11 @@ bool UMIGroup::insert(UMI umi){
     return true;
 }
 
-vector<size_t> UMIGroup::getNumUMIReads(){
-    vector<size_t> rlt;
+std::map<std::string, std::size_t> UMIGroup::getNumUMIReads(){
+    map<string, size_t> rlt;
     
     for(map<string, UMI>::iterator it = umis.begin(); it != umis.end(); it++){
-        rlt.push_back(it->second.getNumReads());
+        rlt.insert(pair<string, size_t> (it->first, it->second.getNumReads()));
     }
     
     return rlt;

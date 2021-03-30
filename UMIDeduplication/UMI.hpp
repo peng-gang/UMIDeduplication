@@ -33,6 +33,7 @@ public:
     bool insert(std::string read1, std::string read2);
     bool insert(std::string read1, std::string read2, std::string qs1, std::string qs2);
     bool insert(std::string read1, std::string read2, std::string qs1, std::string qs2, std::string primer1, std::string primer2);
+    bool insear(const UMI & other);
     
     std::string getUMI() {return umi;}
     std::vector<std::string> getReads1() {return reads1;}

@@ -29,6 +29,7 @@ public:
     bool insert(std::string read);
     bool insert(std::string read, std::string qs);
     bool insert(std::string read, std::string qs, std::string primer);
+    bool insert(const UMISingle & other);
     
     std::string getUMI() {return umi;}
     std::vector<std::string> getReads() {return reads;}
