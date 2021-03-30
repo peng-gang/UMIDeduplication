@@ -10,6 +10,7 @@
 		11B4D49926121C1A00EDBC0D /* UMIDeduplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11B4D49826121C1A00EDBC0D /* UMIDeduplication.cpp */; };
 		11B4D4A126121CC900EDBC0D /* UMI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11B4D49F26121CC900EDBC0D /* UMI.cpp */; };
 		11B4D4A42612261D00EDBC0D /* UMIGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11B4D4A22612261D00EDBC0D /* UMIGroup.cpp */; };
+		11B4D4A726139D7500EDBC0D /* UMISingle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11B4D4A526139D7400EDBC0D /* UMISingle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		11B4D4A026121CC900EDBC0D /* UMI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UMI.hpp; sourceTree = "<group>"; };
 		11B4D4A22612261D00EDBC0D /* UMIGroup.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UMIGroup.cpp; sourceTree = "<group>"; };
 		11B4D4A32612261D00EDBC0D /* UMIGroup.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UMIGroup.hpp; sourceTree = "<group>"; };
+		11B4D4A526139D7400EDBC0D /* UMISingle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UMISingle.cpp; sourceTree = "<group>"; };
+		11B4D4A626139D7500EDBC0D /* UMISingle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UMISingle.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				11B4D4A026121CC900EDBC0D /* UMI.hpp */,
 				11B4D4A22612261D00EDBC0D /* UMIGroup.cpp */,
 				11B4D4A32612261D00EDBC0D /* UMIGroup.hpp */,
+				11B4D4A526139D7400EDBC0D /* UMISingle.cpp */,
+				11B4D4A626139D7500EDBC0D /* UMISingle.hpp */,
 			);
 			path = UMIDeduplication;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 				11B4D49926121C1A00EDBC0D /* UMIDeduplication.cpp in Sources */,
 				11B4D4A42612261D00EDBC0D /* UMIGroup.cpp in Sources */,
 				11B4D4A126121CC900EDBC0D /* UMI.cpp in Sources */,
+				11B4D4A726139D7500EDBC0D /* UMISingle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +257,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/boost_1_75_0/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/boost_1_75_0/lib;
+				OTHER_LDFLAGS = "-lboost_iostreams";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -259,6 +268,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/boost_1_75_0/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/boost_1_75_0/lib;
+				OTHER_LDFLAGS = "-lboost_iostreams";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
