@@ -90,6 +90,15 @@ UMIGroup::UMIGroup(std::string f1, std::string f2, bool gzFile){
     }
 }
 
+UMI UMIGroup::getUMI(std::string umi){
+    map<string, UMI>::iterator it = umis.find(umi);
+    if(it == umis.end()){
+        return UMI();
+    } else {
+        return it->second;
+    }
+}
+
 bool UMIGroup::insert(UMI umi){
     map<string, UMI>::iterator it = umis.find(umi.getUMI());
     if(it != umis.end()){

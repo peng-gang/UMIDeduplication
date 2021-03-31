@@ -78,6 +78,15 @@ UMISingleGroup::UMISingleGroup(std::string inputFile, bool gzFile){
     }
 }
 
+UMISingle UMISingleGroup::getUMI(std::string umi){
+    map<string, UMISingle>::iterator it = umis.find(umi);
+    if(it == umis.end()){
+        return UMISingle();
+    } else {
+        return it->second;
+    }
+}
+
 bool UMISingleGroup::insert(UMISingle umi){
     map<string, UMISingle>::iterator it = umis.find(umi.getUMI());
     if(it != umis.end()){

@@ -28,6 +28,8 @@ public:
     std::size_t getNumReads() {return numReads;}
     std::size_t getNumUMI() {return umis.size();}
     
+    UMISingle getUMI(std::string umi);
+    
    std::map<std::string, std::size_t> getNumUMIReads();
 };
 

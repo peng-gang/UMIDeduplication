@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <iostream>
 
 class UMI{
 private:
@@ -47,6 +48,7 @@ public:
     
     UMI & operator= (const UMI & other);
     bool operator< (const UMI & other) const;
+    //friend std::ostream & operator << (std::ostream & os, const UMI & u);
     
     bool deduplication();
 };
