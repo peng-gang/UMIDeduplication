@@ -110,6 +110,13 @@ bool UMIGroup::insert(UMI umi){
     return true;
 }
 
+bool UMIGroup::clear(){
+    numReads = 0;
+    umis.clear();
+    
+    return true;
+}
+
 std::map<std::string, std::size_t> UMIGroup::getNumUMIReads(){
     map<string, size_t> rlt;
     

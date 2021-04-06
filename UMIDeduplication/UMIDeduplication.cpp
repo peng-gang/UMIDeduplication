@@ -19,14 +19,28 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     
     
-    string file1 = "/Users/gpeng/Work/UMI/data/noTrim/S817_AGGCAGAA-TAGATCGC_L001_R1_001.fastq.gz";
-    string file2 = "/Users/gpeng/Work/UMI/data/noTrim/S817_AGGCAGAA-TAGATCGC_L001_R2_001.fastq.gz";
+    string file1 = "/Users/gpeng/Work/UMI/data/noTrim/S823_AGGCAGAA-AAGGAGTA_L001_R1_001.fastq.gz";
+    string file2 = "/Users/gpeng/Work/UMI/data/noTrim/S823_AGGCAGAA-AAGGAGTA_L001_R2_001.fastq.gz";
+    string outDir = "/Users/gpeng/Work/UMI/rlt/S823/";
     ofstream fout1;
     ofstream fout2;
     
     UMIGroup ug(file1, file2, true);
-    vector<string> umi12({"TTTCACCATAAAAAAAAA", "GTTTCACCAAAAAAAAAA", "GGTTTCACCAAAAAAAAA", "TTTTCACCAAAAAAAAAA", "GGGTTTCACAAAAAAAAA"});
     
+    
+    cout<<"R1+R2:"<<endl;
+    cout << ug.getNumReads()<<endl;
+    map<string, size_t> numUMIReads = ug.getNumUMIReads();
+    cout<<numUMIReads.size()<<endl;
+    
+    std::ofstream ofs ((outDir + "NumUMIReads.txt").c_str(), std::ofstream::out);
+    for(map<string, size_t>::iterator it = numUMIReads.begin(); it != numUMIReads.end(); it++){
+        ofs << it->first << "\t" << it->second << endl;
+    }
+    ofs.close();
+    
+    /*
+    vector<string> umi12;
     for(size_t i=0; i< umi12.size(); i++){
         UMI tmp = ug.getUMI(umi12[i]);
         vector<string> r1 = tmp.getReads1();
@@ -43,24 +57,27 @@ int main(int argc, const char * argv[]) {
         }
         fout2.close();
     }
-    /*
-    cout<<"R1+R2:"<<endl;
-    cout << ug.getNumReads()<<endl;
-    map<string, size_t> numUMIReads = ug.getNumUMIReads();
-    cout<<numUMIReads.size()<<endl;
-    
-    std::ofstream ofs ("/Users/gpeng/Work/UMI/rlt/NumUMIReads.txt", std::ofstream::out);
-    for(map<string, size_t>::iterator it = numUMIReads.begin(); it != numUMIReads.end(); it++){
-        ofs << it->first << "\t" << it->second << endl;
-    }
-    ofs.close();
      */
-    
+
+    ug.clear();
      
     
     UMISingleGroup ug1(file1, true);
-    vector<string> umi1({"TTTCACCAT" "GTTTCACCA" "GGGTGTCTG" "GGTTTCACC" "TTACGCCAC"});
     
+    
+    cout<<"R1:"<<endl;
+    cout << ug1.getNumReads()<<endl;
+    map<string, size_t> numUMIReads1 = ug1.getNumUMIReads();
+    cout<<numUMIReads1.size()<<endl;
+    
+    std::ofstream ofs1 ((outDir + "NumUMIReads1.txt").c_str(), std::ofstream::out);
+    for(map<string, size_t>::iterator it = numUMIReads1.begin(); it != numUMIReads1.end(); it++){
+        ofs1 << it->first << "\t" << it->second << endl;
+    }
+    ofs1.close();
+    
+    /*
+    vector<string> umi1({"TTTCACCAT","GTTTCACCA","GGGTGTCTG","GGTTTCACC","TTACGCCAC"});
     for(size_t i=0; i< umi1.size(); i++){
         UMISingle tmp = ug1.getUMI(umi1[i]);
         vector<string> r1 = tmp.getReads();
@@ -70,26 +87,29 @@ int main(int argc, const char * argv[]) {
         }
         fout1.close();
     }
-    
-    /*
-    cout<<"R1:"<<endl;
-    cout << ug1.getNumReads()<<endl;
-    map<string, size_t> numUMIReads1 = ug1.getNumUMIReads();
-    cout<<numUMIReads1.size()<<endl;
-    
-    std::ofstream ofs1 ("/Users/gpeng/Work/UMI/rlt/NumUMIReads1.txt", std::ofstream::out);
-    for(map<string, size_t>::iterator it = numUMIReads1.begin(); it != numUMIReads1.end(); it++){
-        ofs1 << it->first << "\t" << it->second << endl;
-    }
-    ofs1.close();
      */
+     
+    ug1.clear();
     
     
     
     
     UMISingleGroup ug2(file2, true);
-    vector<string> umi2({"AAAAAAAAA" "TTGTCGCTT" "TGGGACTTG" "CTGCCTGGC" "TAAAAAAAA"});
     
+    
+    cout<<"R2:"<<endl;
+    cout << ug2.getNumReads()<<endl;
+    map<string, size_t> numUMIReads2 = ug2.getNumUMIReads();
+    cout<<numUMIReads2.size()<<endl;
+    
+    std::ofstream ofs2 ((outDir + "NumUMIReads2.txt").c_str(), std::ofstream::out);
+    for(map<string, size_t>::iterator it = numUMIReads2.begin(); it != numUMIReads2.end(); it++){
+        ofs2 << it->first << "\t" << it->second << endl;
+    }
+    ofs2.close();
+    
+    /*
+    vector<string> umi2({"AAAAAAAAA","TTGTCGCTT","TGGGACTTG","CTGCCTGGC","TAAAAAAAA"});
     for(size_t i=0; i< umi2.size(); i++){
         UMISingle tmp = ug2.getUMI(umi2[i]);
         vector<string> r2 = tmp.getReads();
@@ -99,19 +119,9 @@ int main(int argc, const char * argv[]) {
         }
         fout2.close();
     }
-    
-    /*
-    cout<<"R2:"<<endl;
-    cout << ug2.getNumReads()<<endl;
-    map<string, size_t> numUMIReads2 = ug2.getNumUMIReads();
-    cout<<numUMIReads2.size()<<endl;
-    
-    std::ofstream ofs2 ("/Users/gpeng/Work/UMI/rlt/NumUMIReads2.txt", std::ofstream::out);
-    for(map<string, size_t>::iterator it = numUMIReads2.begin(); it != numUMIReads2.end(); it++){
-        ofs2 << it->first << "\t" << it->second << endl;
-    }
-    ofs2.close();
      */
+     
+    ug2.clear();
     
     return 0;
 }

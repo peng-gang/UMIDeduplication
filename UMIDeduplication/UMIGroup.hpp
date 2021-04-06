@@ -25,6 +25,8 @@ public:
     UMIGroup(std::string f1, std::string f2, bool gzFile = true);
     bool insert(UMI umi);
     
+    bool clear();
+    
     std::size_t getNumReads() {return numReads;}
     std::size_t getNumUMI() {return umis.size();}
     

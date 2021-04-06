@@ -25,6 +25,8 @@ public:
     UMISingleGroup(std::string inputFile, bool gzFile = true);
     bool insert(UMISingle umi);
     
+    bool clear();
+    
     std::size_t getNumReads() {return numReads;}
     std::size_t getNumUMI() {return umis.size();}
     

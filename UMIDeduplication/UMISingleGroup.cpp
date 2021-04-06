@@ -98,6 +98,12 @@ bool UMISingleGroup::insert(UMISingle umi){
     return true;
 }
 
+bool UMISingleGroup::clear(){
+    numReads = 0;
+    umis.clear();
+    return true;
+}
+
 std::map<std::string, std::size_t> UMISingleGroup::getNumUMIReads(){
     std::map<std::string, std::size_t> rlt;
     
